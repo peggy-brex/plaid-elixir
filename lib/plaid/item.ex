@@ -15,7 +15,8 @@ defmodule Plaid.Item do
             item_id: nil,
             webhook: nil,
             request_id: nil,
-            status: nil
+            status: nil,
+            test: nil
 
   @type t :: %__MODULE__{
           available_products: [String.t()],
