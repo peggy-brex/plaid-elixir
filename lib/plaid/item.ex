@@ -16,7 +16,8 @@ defmodule Plaid.Item do
             webhook: nil,
             request_id: nil,
             status: nil,
-            test: nil
+            consented_products: [],
+            consent_expiration_time: nil,
 
   @type t :: %__MODULE__{
           available_products: [String.t()],
@@ -27,6 +28,8 @@ defmodule Plaid.Item do
           webhook: String.t(),
           request_id: String.t(),
           status: map | nil,
+          consented_products: [String.t()],
+          consent_expiration_time: String.t(),
         }
   @type params :: %{required(atom) => String.t()}
   @type config :: %{required(atom) => String.t()}

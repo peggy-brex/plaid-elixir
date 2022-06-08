@@ -59,7 +59,9 @@ defmodule Plaid.Factory do
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
-        "webhook" => "https://plaid.com/example/hook"
+        "webhook" => "https://plaid.com/example/hook",
+        "consented_products" => ["auth"],
+        "consent_expiration_time" => nil
       },
       "request_id" => "45QSn"
     }
@@ -95,7 +97,9 @@ defmodule Plaid.Factory do
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
-        "webhook" => "https://plaid.com/example/hook"
+        "webhook" => "https://plaid.com/example/hook",
+        "consented_products" => [],
+        "consent_expiration_time" => nil
       },
       "request_id" => "qpCtl"
     }
@@ -126,7 +130,9 @@ defmodule Plaid.Factory do
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
-        "webhook" => "https://plaid.com/updated/hook"
+        "webhook" => "https://plaid.com/updated/hook",
+        "consented_products" => nil,
+        "consent_expiration_time" => nil
       },
       "request_id" => "qpCtl"
     }
@@ -184,7 +190,9 @@ defmodule Plaid.Factory do
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
-        "webhook" => "https://plaid.com/example/hook"
+        "webhook" => "https://plaid.com/example/hook",
+        "consented_products" => ["auth"],
+        "consent_expiration_time" => "2020-01-15T13:25:17.766Z"
       },
       "income" => %{
         "income_streams" => [
@@ -378,7 +386,9 @@ defmodule Plaid.Factory do
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
-        "webhook" => "https://plaid.com/example/hook"
+        "webhook" => "https://plaid.com/example/hook",
+        "consented_products" => ["auth"],
+        "consent_expiration_time" => "2020-01-15T13:25:17.766Z"
       },
       "request_id" => "45QSn"
     }
@@ -471,7 +481,9 @@ defmodule Plaid.Factory do
         "error" => nil,
         "institution_id" => "ins_3",
         "item_id" => "EQXBrmLXgLsZZbVM4JvGsG5LeLm9bgsXRLv4j",
-        "webhook" => ""
+        "webhook" => "",
+        "consented_products" => nil,
+        "consent_expiration_time" => "2020-01-15T13:25:17.766Z"
       },
       "request_id" => "UfViDIZgENw05Cx",
       "securities" => [
@@ -632,7 +644,9 @@ defmodule Plaid.Factory do
         "error" => nil,
         "institution_id" => "ins_3",
         "item_id" => "EQXBrmLXgLsZZbVM4JvGsG5LeLm9bgsXRLv4j",
-        "webhook" => ""
+        "webhook" => "",
+        "consented_products" => [],
+        "consent_expiration_time" => "2020-01-15T13:25:17.766Z"
       },
       "request_id" => "8lT4oybo5jl3JMp",
       "securities" => [
