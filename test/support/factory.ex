@@ -54,8 +54,9 @@ defmodule Plaid.Factory do
         }
       ],
       "item" => %{
-        "available_products" => ["balance", "auth"],
+        "available_products" => ["balance"],
         "billed_products" => ["identity", "transactions"],
+        "products" => ["auth"],
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
@@ -92,8 +93,9 @@ defmodule Plaid.Factory do
     %{
       "access_token" => "access-sandbox-e9317406-8413",
       "item" => %{
-        "available_products" => ["balance", "auth"],
+        "available_products" => ["balance"],
         "billed_products" => ["identity", "transactions"],
+        "products" => ["auth"],
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
@@ -125,8 +127,9 @@ defmodule Plaid.Factory do
     %{
       "access_token" => "access-sandbox-e9317406-8413",
       "item" => %{
-        "available_products" => ["balance", "auth"],
+        "available_products" => ["balance"],
         "billed_products" => ["identity", "transactions"],
+        "products" => ["auth"],
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
@@ -185,8 +188,9 @@ defmodule Plaid.Factory do
   def http_response_body(:income) do
     %{
       "item" => %{
-        "available_products" => ["balance", "auth"],
+        "available_products" => ["balance"],
         "billed_products" => ["identity", "transactions"],
+        "products" => ["auth"],
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
@@ -381,8 +385,9 @@ defmodule Plaid.Factory do
         }
       ],
       "item" => %{
-        "available_products" => ["balance", "auth"],
+        "available_products" => ["balance"],
         "billed_products" => ["identity", "transactions"],
+        "products" => ["auth"],
         "error" => nil,
         "institution_id" => "ins_109508",
         "item_id" => "Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr",
@@ -478,6 +483,7 @@ defmodule Plaid.Factory do
       "item" => %{
         "available_products" => ["assets", "balance", "credit_details", "identity", "income"],
         "billed_products" => ["auth", "investments", "transactions"],
+        "products" => ["auth"],
         "error" => nil,
         "institution_id" => "ins_3",
         "item_id" => "EQXBrmLXgLsZZbVM4JvGsG5LeLm9bgsXRLv4j",
@@ -641,6 +647,7 @@ defmodule Plaid.Factory do
       "item" => %{
         "available_products" => ["assets", "balance", "credit_details", "identity", "income"],
         "billed_products" => ["auth", "investments", "transactions"],
+        "products" => ["auth"],
         "error" => nil,
         "institution_id" => "ins_3",
         "item_id" => "EQXBrmLXgLsZZbVM4JvGsG5LeLm9bgsXRLv4j",
@@ -1430,6 +1437,7 @@ defmodule Plaid.Factory do
           "transactions"
         ],
         "billed_products" => ["auth", "identity"],
+        "products" => ["auth"],
         "error" => nil,
         "institution_id" => "ins_3",
         "item_id" => "1zGgLloLDpIqpqP9mbx5HD8LGbvpGGC57l4Lq",
