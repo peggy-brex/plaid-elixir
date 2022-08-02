@@ -18,7 +18,7 @@ defmodule Plaid.Item do
             request_id: nil,
             status: nil,
             consented_products: [],
-            consent_expiration_time: nil,
+            consent_expiration_time: nil
 
   @type t :: %__MODULE__{
           available_products: [String.t()],
