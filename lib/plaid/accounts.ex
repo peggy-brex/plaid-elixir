@@ -3,7 +3,7 @@ defmodule Plaid.Accounts do
   Functions for Plaid `accounts` endpoint.
   """
 
-  import Plaid, only: [make_request_with_cred: 4, validate_cred: 1]
+  import Plaid, only: [make_request_with_cred: 4, make_request_with_cred_and_options: 5, validate_cred: 1]
 
   alias Plaid.Utils
 
@@ -17,6 +17,7 @@ defmodule Plaid.Accounts do
         }
   @type params :: %{required(atom) => String.t() | map}
   @type config :: %{required(atom) => String.t()}
+  @type httpoison_options :: %{required(atom) => Keyword.t()}  
 
   @endpoint :accounts
 
@@ -163,7 +164,6 @@ defmodule Plaid.Accounts do
 
   @doc """
   Gets balance for specifed accounts associated with Item.
-
   Parameters
   ```
   %{access_token: "access-token", options: %{account_ids: ["account-id"]}}
@@ -175,6 +175,27 @@ defmodule Plaid.Accounts do
     endpoint = "#{@endpoint}/balance/get"
 
     make_request_with_cred(:post, endpoint, config, params)
+    |> Utils.handle_resp(@endpoint)
+  end
+  
+  @doc """
+  Gets balance with httpoison_options for specifed accounts associated with Item.
+
+  Parameters
+  ```
+  params: %{access_token: "access-token", options: %{account_ids: ["account-id"]}}
+  httpoison_options: [ssl: [{:versions, [:"tlsv1.2"]}],
+                      timeout: 15_000,
+                      recv_timeout: 30_000] 
+  config: could be nil
+  ```
+  """
+  @spec get_balance_with_httpoison_options(params, httpoison_options, config | nil) :: {:ok, Plaid.Accounts.t()} | {:error, Plaid.Error.t()}
+  def get_balance_with_httpoison_options(params, httpoison_options, config \\ %{}) do
+    config = validate_cred(config)
+    endpoint = "#{@endpoint}/balance/get"
+
+    make_request_with_cred_and_options(:post, endpoint, config, params, httpoison_options)
     |> Utils.handle_resp(@endpoint)
   end
 end

@@ -50,5 +50,23 @@ defmodule Plaid.AccountsTest do
       assert Plaid.Accounts == resp.__struct__
       assert {:ok, _} = Jason.encode(resp)
     end
+    
+    test "get_balance_with_options/1 requests POST with longer timeout and returns Plaid.Accounts", %{bypass: bypass} do
+      body = http_response_body(:accounts)
+      httpoison_options = [
+        ssl: [{:versions, [:"tlsv1.2"]}],
+        timeout: 15_000,
+        recv_timeout: 30_000
+      ]
+      Bypass.expect(bypass, fn conn ->
+        assert "POST" == conn.method
+        assert "accounts/balance/get" == Enum.join(conn.path_info, "/")
+        Plug.Conn.resp(conn, 200, Poison.encode!(body))
+      end)
+
+      assert {:ok, resp} = Plaid.Accounts.get_balance_with_httpoison_options(%{access_token: "my-token"}, httpoison_options)
+      assert Plaid.Accounts == resp.__struct__
+      assert {:ok, _} = Jason.encode(resp)
+    end
   end
 end
