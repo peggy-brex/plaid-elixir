@@ -81,6 +81,20 @@ defmodule Plaid do
   end
 
   @doc """
+  Makes request with credentials and options.
+  """
+  @spec make_request_with_cred_and_options(atom, String.t(), map, map, Keyword.t()) ::
+          {:ok, HTTPoison.Response.t()} | {:error, HTTPoison.Error.t()}
+  def make_request_with_cred_and_options(method, endpoint, config, body \\ %{}, httpoison_options \\ []) do
+    request_endpoint = "#{get_root_uri(config)}#{endpoint}"
+    cred = Map.delete(config, :root_uri)
+    request_body = Map.merge(body, cred) |> Poison.encode!()
+    request_headers = get_request_headers() |> Map.to_list()
+    options = httpoison_options
+    request(method, request_endpoint, request_body, request_headers, options)
+  end
+
+  @doc """
   Makes request with credentials.
   """
   @spec make_request_with_cred(atom, String.t(), map, map, map, Keyword.t()) ::
