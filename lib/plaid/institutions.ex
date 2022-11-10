@@ -48,7 +48,8 @@ defmodule Plaid.Institutions do
               url: nil,
               url_account_locked: nil,
               url_account_setup: nil,
-              url_forgotten_password: nil
+              url_forgotten_password: nil,
+              auth_metadata: :map
 
     @type t :: %__MODULE__{
             brand_name: String.t(),
@@ -73,7 +74,8 @@ defmodule Plaid.Institutions do
             url: String.t(),
             url_account_locked: String.t(),
             url_account_setup: String.t(),
-            url_forgotten_password: String.t()
+            url_forgotten_password: String.t(),
+            auth_metadata: map()
           }
 
     defmodule Colors do
