@@ -49,7 +49,7 @@ defmodule Plaid.Institutions do
               url_account_locked: nil,
               url_account_setup: nil,
               url_forgotten_password: nil,
-              auth_metadata: :map
+              auth_metadata: :map, nil
 
     @type t :: %__MODULE__{
             brand_name: String.t(),
@@ -102,6 +102,33 @@ defmodule Plaid.Institutions do
       @derive Jason.Encoder
       defstruct label: nil, name: nil, type: nil
       @type t :: %__MODULE__{label: String.t(), name: String.t(), type: String.t()}
+    end
+
+    defmodule AuthMetadata do
+      @moduledoc """
+      Plaid Institution auth_metadata structure.
+      """
+
+      @derive Jason.Encoder
+      defstruct supported_methods: nil
+      @type t :: %__MODULE__{supported_methods: Map.t() }
+    end
+
+    defmodule SupportedMethods do
+      @moduledoc """
+      Plaid Institution supported_methods structure (nested inside auth_metadata).
+      """
+
+      @derive Jason.Encoder
+      defstruct automated_micro_deposits: nil,
+                instant_auth: nil,
+                instant_match:nil
+
+      @type t :: %__MODULE__{
+              automated_micro_deposits: Boolean.t(),
+              instant_auth: Boolean.t(),
+              instant_match: Boolean.t()
+      }
     end
   end
 
