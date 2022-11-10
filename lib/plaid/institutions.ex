@@ -49,7 +49,7 @@ defmodule Plaid.Institutions do
               url_account_locked: nil,
               url_account_setup: nil,
               url_forgotten_password: nil,
-              auth_metadata: :map, nil
+              auth_metadata: nil
 
     @type t :: %__MODULE__{
             brand_name: String.t(),
@@ -75,7 +75,7 @@ defmodule Plaid.Institutions do
             url_account_locked: String.t(),
             url_account_setup: String.t(),
             url_forgotten_password: String.t(),
-            auth_metadata: map()
+            auth_metadata: Plaid.Institutions.Institution.SupportedMethods.t()
           }
 
     defmodule Colors do
@@ -111,7 +111,7 @@ defmodule Plaid.Institutions do
 
       @derive Jason.Encoder
       defstruct supported_methods: nil
-      @type t :: %__MODULE__{supported_methods: Map.t() }
+      @type t :: %__MODULE__{supported_methods: Plaid.Institutions.Institution.SupportedMethods.t() }
     end
 
     defmodule SupportedMethods do
@@ -122,7 +122,7 @@ defmodule Plaid.Institutions do
       @derive Jason.Encoder
       defstruct automated_micro_deposits: nil,
                 instant_auth: nil,
-                instant_match:nil
+                instant_match: nil
 
       @type t :: %__MODULE__{
               automated_micro_deposits: Boolean.t(),
